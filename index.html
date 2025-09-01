@@ -1,0 +1,35 @@
+<head>
+  <script src="https://unpkg.com/kaplay@3001.0.19/dist/kaplay.js"></script>
+</head>
+
+<body>
+  <script>
+    kaplay({
+        width: 200,
+        height: 200,
+        background: "#d46eb3",
+        scale: 2,
+        canvas: document.getElementById("canvas"),
+    });
+    // replace ts with your proxy
+    loadSprite("greg", "http://192.168.1.119:5030/proxy?url=https%3A%2F%2Fwww.greg.com%2Frails%2Factive_storage%2Frepresentations%2Fredirect%2FeyJfcmFpbHMiOnsiZGF0YSI6NzIsInB1ciI6ImJsb2JfaWQifX0%3D--79cae084aa03b81bcebda9da1bb468378cc6d434%2FeyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlsyNTAsbnVsbF19LCJwdXIiOiJ2YXJpYXRpb24ifX0%3D--fd2a2d2007b8023ae06a7775c69d027c7375bdb3%2Ffreethings.com.jpg");
+    const obj = add([
+        sprite("greg"),
+        pos(10, 20),
+        "shape",
+    ]);
+    onKeyDown("right", () => {
+        obj.move(200, 0);
+    });
+    onKeyDown("left", () => {
+        obj.move(-200, 0);
+    });
+    onKeyDown("up", () => {
+        obj.move(0, -200);
+    });
+    onKeyDown("down", () => {
+        obj.move(0, 200);
+    });
+    const isShape = obj.is("shape");
+    debug.log(isShape);
+  </script>
