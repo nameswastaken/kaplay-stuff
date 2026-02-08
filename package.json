@@ -1,0 +1,24 @@
+{
+  "name": "smb-web",
+  "private": true,
+  "dependencies": {
+    "fflate": "^0.8.2",
+    "gl-matrix": "^3.4.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "parcel": "^2.16.4",
+    "playwright": "^1.44.0",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --format=esm --target=es2022 --outdir=dist --sourcemap --define:process.env.NODE_ENV=\\\"production\\\"",
+    "build:watch": "esbuild src/main.ts --bundle --format=esm --target=es2022 --outdir=dist --sourcemap --define:process.env.NODE_ENV=\\\"development\\\" --watch",
+    "test:e2e": "node tests/e2e.mjs"
+  },
+  "description": "Super Monkey Ball on Web Broser.",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
